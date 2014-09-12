@@ -15,14 +15,7 @@ task :install do
 end
 
 task :destroy do
-  puts "Are you sure you want to delete everything? (y/N) "
-  input = $stdin.gets.chomp
-  if input.downcase.slice(0) == 'y'
-    FileUtils.rm("db/projects.db")
-    puts "Database deleted!"
-  else
-    puts "You're safe!"
-  end
+  ruby "lib/destroy.rb"
 end
 
 task default: %w[install]
